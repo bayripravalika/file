@@ -1,0 +1,89 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table mobile_customer0(customer_no number primary key, customer_name varchar2(20) not null, emailId varchar2(35), noOfCalls number);
+
+insert into mobile_customer0 values(1001, 'Meena', 'meena@gmail.com', 7);
+
+
+ //***********************************create sequence******************************************//
+
+create sequence seq_new
+
+start with 1001
+
+increment by 1
+/
+
+then insert(seq_new.nextvalue, 'Meena', 'mail', 7);
+
+
+
+
+
+
+ create table mobile_bill(bill_no number primary key, customer_no number references mobile_customer0(customer_no), bill_amount number, billPaidDate date);
+
+ insert into mobile_bill values(201, 1001, 90, '22-jan-2017');
+
+
+
+
+
+
+//****************************highest no.of calls****************************//
+
+
+
+ select consumer_no, consumer_name, units_consumed from  electricity_consumer where units_consumed  = (select max(units_consumed) from electricity_consumer);
+
+
+
+
+
+
+//***************************secondhalf month*******************************//
+
+
+ select * from electricity_bill where to_char(billPaidDate,'dd')>15; 
+
+
+
+
+
+
+//*****************************multilple times with no. and count*************************************//
+
+
+
+
+ select customer_no, count(*) from mobile_bill group by customer_no having count(*) >=2;
+
+
+
+
+
+
+
+//********************************only name and count*********************************************//
+
+
+
+ select customer_name, count(*) as multiplepaid from mobile_customer0  inner join mobile_bill on mobile_customer0.customer_no = mobile_bill.customer_no group by customer_name having count(*) >1;
+
+
+//***********************************//
+
+alter table mobile_customer0 add billPaidDate date, billpaymentDuedate date

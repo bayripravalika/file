@@ -1,0 +1,45 @@
+<script>
+     function check()
+    {
+    var a=0,b=0,c=0;
+    var tot = 0;
+    var tot1=0;
+    var tot2=0;
+    var tot3=0;
+
+    var a = parseFloat(document.getElementById('bill').value);
+
+    if(a>200)
+    {
+        tot1 = 200*4;
+        b = a - 200;
+        alert('b is: '+b);
+        if(b>200)
+        {
+        c= b-200;
+        alert('c is: '+c);
+        tot2 = 200*5;
+        tot3 = c*6;
+        tot = tot1 + tot2 + tot3;
+        alert(tot);
+        }
+        else
+        {
+
+        tot1 = 200*4;
+        tot2 = b*5;
+        tot3 = c*6;
+        tot = tot1 + tot2 + tot3;
+        alert(tot);
+
+        }
+    }
+    else
+    {
+        tot = a*4;
+        alert(tot);
+
+    }
+    }
+</script>
+<input name="" type="text" value="" onblur="check()" id="bill" />

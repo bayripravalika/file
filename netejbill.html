@@ -1,0 +1,48 @@
+<html>
+  <head>
+<center>
+<tr>
+<table border=1 />
+<center>
+<td>
+<form>
+consumer No   :<input type="Consumer number" pattern="[0-9]{9}" placeholder="enter Number" required>
+</form> 
+
+Consumer Name  :<input type="text" maxlength="32" name="first_name" pattern="[A-Za-z]{1,32}" placeholder="Consumer name" required>
+</form> 
+   
+<form>
+Email  Address :<input type="email" placeholder="Email" required>
+</form>
+
+<form>
+<title>Add program</title>
+<script language="javascript">
+                function addNumbers()
+                {
+                        var val1 = parseInt(document.getElementById("value1").value);
+                        var cost;
+		if(val1 <= 100) {
+                        cost = val1*2;
+                }
+		else if (val1 >100){
+		cost = ((100*2) + (val1-100)*3)
+		}
+		{
+		alert("bill:" + cost)
+		}
+		}	
+        </script>
+  </head>
+  <body>
+<tr>
+<td>
+Number of Units  :<input type="text" id="value1" name="value1" value=""/><br/>
+<input type="button" name="Sumbit" value="Consumer Bill" onclick="javascript:addNumbers()"/><br/>
+</td>
+</tr>  
+</td>
+</tr>
+</body>
+</html>
